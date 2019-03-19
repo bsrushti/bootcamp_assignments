@@ -8,7 +8,7 @@ class Probability {
 
     Probability(double probability) throws Exception {
         if (isBeyondLimit(probability)) {
-            throw new Exception("Invalid probability");
+            throw new InvalidProbabilityException("Invalid probability");
         }
         this.chance = probability;
     }
