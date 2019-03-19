@@ -11,7 +11,7 @@ public class Dimension {
 
     public void validateDimensions(double value) throws Exception {
         if (value < 0) {
-            throw new Exception("Invalid dimensions");
+            throw new NegativeInputException("Invalid dimensions");
         }
     }
 

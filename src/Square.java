@@ -1,7 +1,7 @@
 public class Square {
     private final Dimension side;
 
-    public Square(Dimension side) throws Exception {
+    public Square(Dimension side) {
         this.side = side;
     }
 
