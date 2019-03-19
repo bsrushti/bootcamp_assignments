@@ -1,3 +1,5 @@
+package day1;
+
 public class Rectangle implements Shape {
     private final Dimension length;
     private final Dimension breadth;

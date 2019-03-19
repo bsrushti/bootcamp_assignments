@@ -1,3 +1,5 @@
+package day1;
+
 public class Square {
     private final Dimension side;
 
