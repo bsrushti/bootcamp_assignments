@@ -16,10 +16,6 @@ class DimensionTest {
     @Test
     @DisplayName("should throw exception if given value less than zero")
     void shouldThrowExceptionIfGivenValueIsInvalid() {
-        try {
-            new Dimension(-3);
-            fail("should throw exception for value less than zero");
-        } catch (Exception e) {
-        }
+        assertThrows(Exception.class, () -> new Dimension(-3));
     }
 }
