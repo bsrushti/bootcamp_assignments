@@ -37,10 +37,10 @@ class ProbabilityTest {
     }
 
     @Test
-    void shouldReturnDifference() throws Exception {
+    void shouldReturnOrOfProbabilities() throws Exception {
         Probability coinOneProbability = new Probability(0.5);
         Probability coinTwoProbability = new Probability(0.5);
         Probability expected = new Probability(0.75);
-        assertEquals(expected,coinOneProbability.difference(coinTwoProbability));
+        assertEquals(expected,coinOneProbability.or(coinTwoProbability));
     }
 }

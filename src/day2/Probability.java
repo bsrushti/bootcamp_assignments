@@ -25,7 +25,7 @@ class Probability {
         return new Probability(this.chance * anotherProbability.chance);
     }
 
-    Probability difference(Probability anotherProbability) throws Exception {
+    Probability or(Probability anotherProbability) throws Exception {
         return and(anotherProbability).not();
     }
 
