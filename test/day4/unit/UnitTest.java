@@ -9,16 +9,16 @@ import static org.junit.jupiter.api.Assertions.*;
 class UnitTest {
     @Test
     void shouldGetSameFeetUnit() {
-        assertEquals(Unit.feet,Unit.feet);
+        assertEquals(Unit.FEET,Unit.FEET);
     }
 
     @Test
     void shouldGetSameInchUnit() {
-        assertEquals(Unit.inch,Unit.inch);
+        assertEquals(Unit.INCH,Unit.INCH);
     }
 
     @Test
     void shouldConvertFeetToBaseUnit() {
-        assertEquals(new BigDecimal(12),Unit.feet.calculateBaseUnit(new BigDecimal(1)));
+        assertEquals(new BigDecimal(12),Unit.FEET.calculateBaseUnit(new BigDecimal(1)));
     }
 }
