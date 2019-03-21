@@ -9,48 +9,58 @@ import static org.junit.jupiter.api.Assertions.*;
 class QuantityTest {
     @Test
     void shouldCreateAQuantityOfUnitInch() {
-        assertEquals(new Quantity(new BigDecimal(1),Unit.feet),new Quantity(new BigDecimal(1),Unit.feet));
+        Quantity oneFeet = new Quantity(new BigDecimal(1), Unit.feet);
+        Quantity anotherOneFeet = new Quantity(new BigDecimal(1), Unit.feet);
+        assertEquals(oneFeet,anotherOneFeet);
     }
 
     @Test
     void shouldReturnTrueForSameQuantity() {
-        Quantity quantity1 = new Quantity(new BigDecimal(1), Unit.feet);
-        Quantity quantity2 = new Quantity(new BigDecimal(1), Unit.feet);
+        Quantity oneFeet = new Quantity(new BigDecimal(1), Unit.feet);
+        Quantity anotherOneFeet = new Quantity(new BigDecimal(1), Unit.feet);
 
-        assertTrue(quantity1.compareTo(quantity2));
+        assertEquals(oneFeet,anotherOneFeet);
     }
 
 
     @Test
     void shouldReturnFalseForDifferentQuantities() {
-        Quantity quantity1 = new Quantity(new BigDecimal(1), Unit.feet);
-        Quantity quantity2 = new Quantity(new BigDecimal(2), Unit.feet);
+        Quantity oneFeet = new Quantity(new BigDecimal(1), Unit.feet);
+        Quantity twoFeet = new Quantity(new BigDecimal(2), Unit.feet);
 
-        assertFalse(quantity1.compareTo(quantity2));
+        assertNotEquals(oneFeet,twoFeet);
     }
 
 
     @Test
     void shouldReturnFalseForSameAmountOfFeetAndInches() {
-        Quantity quantity1 = new Quantity(new BigDecimal(12), Unit.feet);
-        Quantity quantity2 = new Quantity(new BigDecimal(1), Unit.inch);
+        Quantity twelveFeet = new Quantity(new BigDecimal(12), Unit.feet);
+        Quantity oneInch = new Quantity(new BigDecimal(1), Unit.inch);
 
-        assertFalse(quantity1.compareTo(quantity2));
+        assertNotEquals(twelveFeet,oneInch);
     }
 
     @Test
     void shouldReturnTrueForSameAmountOfFeetAndInches() {
-        Quantity quantity1 = new Quantity(new BigDecimal(1), Unit.feet);
-        Quantity quantity2 = new Quantity(new BigDecimal(12), Unit.inch);
+        Quantity oneFeet = new Quantity(new BigDecimal(1), Unit.feet);
+        Quantity twelveInch = new Quantity(new BigDecimal(12), Unit.inch);
 
-        assertTrue(quantity1.compareTo(quantity2));
+        assertEquals(oneFeet,twelveInch);
     }
 
     @Test
     void shouldReturnTrueForSameAmountOfCmAndInches() {
-        Quantity quantity1 = new Quantity(new BigDecimal(2), Unit.inch);
-        Quantity quantity2 = new Quantity(new BigDecimal(5), Unit.cm);
+        Quantity twoInch = new Quantity(new BigDecimal(2), Unit.inch);
+        Quantity fiveCm = new Quantity(new BigDecimal(5), Unit.cm);
 
-        assertTrue(quantity1.compareTo(quantity2));
+        assertEquals(twoInch,fiveCm);
+    }
+
+    @Test
+    void shouldReturnTrueForSameAmountOfCmAndMm() {
+        Quantity tenMm = new Quantity(new BigDecimal(10), Unit.mm);
+        Quantity oneCm = new Quantity(new BigDecimal(1), Unit.cm);
+
+        assertEquals(tenMm,oneCm);
     }
 }

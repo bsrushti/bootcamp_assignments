@@ -7,6 +7,8 @@ class Unit {
     static final Unit feet = new Unit(new BigDecimal(12));
     static final Unit inch = new Unit(new BigDecimal(1));
     static final Unit cm = new Unit(new BigDecimal(0.4));
+    static final Unit mm = new Unit(new BigDecimal(0.04));
+
 
     private Unit(BigDecimal ratio) {
         this.ratio = ratio;

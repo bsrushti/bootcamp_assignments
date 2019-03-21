@@ -13,15 +13,8 @@ class Quantity {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Quantity quantity = (Quantity) o;
-        return Objects.equals(value, quantity.value) &&
-                Objects.equals(unit, quantity.unit);
-    }
-
-    boolean compareTo(Quantity quantity) {
+    public boolean equals(Object otherQuantity) {
+        Quantity quantity = (Quantity) otherQuantity;
         BigDecimal baseUnit = unit.calculateBaseUnit(this.value);
         BigDecimal baseUnitOfQuantity = quantity.unit.calculateBaseUnit(quantity.value);
 
