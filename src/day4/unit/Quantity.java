@@ -1,7 +1,6 @@
 package day4.unit;
 
 import java.math.BigDecimal;
-import java.util.Objects;
 
 class Quantity {
     private BigDecimal value;

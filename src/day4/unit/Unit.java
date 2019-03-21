@@ -9,6 +9,8 @@ class Unit {
     static final Unit cm = new Unit(new BigDecimal(0.4));
     static final Unit mm = new Unit(new BigDecimal(0.04));
 
+    static final Unit gallon = new Unit(new BigDecimal(3.79));
+    static final Unit litre = new Unit(new BigDecimal(1));
 
     private Unit(BigDecimal ratio) {
         this.ratio = ratio;

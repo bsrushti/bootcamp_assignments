@@ -63,4 +63,28 @@ class QuantityTest {
 
         assertEquals(tenMm,oneCm);
     }
+
+    @Test
+    void shouldReturnTrueForSameAmountOfGallon() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.gallon);
+        Quantity anotherOneGallon = new Quantity(new BigDecimal(1), Unit.gallon);
+
+        assertEquals(oneGallon,anotherOneGallon);
+    }
+
+    @Test
+    void shouldReturnTrueForSameAmountOfGallonAndLitre() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.gallon);
+        Quantity threePointSevenNineLitre = new Quantity(new BigDecimal(3.79), Unit.litre);
+
+        assertEquals(oneGallon,threePointSevenNineLitre);
+    }
+
+    @Test
+    void shouldReturnFalseForSameAmountOfGallonAndLitre() {
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.gallon);
+        Quantity threePointSevenNineLitre = new Quantity(new BigDecimal(4), Unit.litre);
+
+        assertNotEquals(oneGallon,threePointSevenNineLitre);
+    }
 }
