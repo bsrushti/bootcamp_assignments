@@ -5,8 +5,9 @@ import java.math.BigDecimal;
 class Unit {
     private final BigDecimal ratio;
     private final Object type;
-    static final Object LENGTH = new Object();
-    static final Object VOLUME = new Object();
+
+    private static final Object LENGTH = new Object();
+    private static final Object VOLUME = new Object();
 
     static final Unit FEET = new Unit(new BigDecimal(12),LENGTH);
     static final Unit INCH = new Unit(new BigDecimal(1),LENGTH);
@@ -22,11 +23,15 @@ class Unit {
     }
 
     BigDecimal calculateBaseUnit(BigDecimal value) {
-        return ratio.multiply(value);
+        BigDecimal convertedValue = ratio.multiply(value);
+        return convertedValue;
     }
 
-    public boolean isEqual(Unit unit) {
+    boolean isEqual(Unit unit) {
         return this.type == unit.type;
     }
 
+    BigDecimal convertTo(BigDecimal value) {
+        return value.divide(ratio);
+    }
 }

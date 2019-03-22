@@ -25,12 +25,15 @@ class Quantity {
         return baseUnit.intValue() == (baseUnitOfQuantity.intValue());
     }
 
-    public Quantity add(Quantity anotherQuantity) throws InvalidTypeException {
-
+    Quantity add(Quantity anotherQuantity) throws InvalidTypeException {
         if(!(this.unit.isEqual(anotherQuantity.unit))) {
             throw new InvalidTypeException("invalid types");
         }
-        BigDecimal sum = this.value.add(anotherQuantity.value);
-        return new Quantity(sum,this.unit);
+
+        BigDecimal firstQuantityInInch = unit.calculateBaseUnit(this.value);
+        BigDecimal secondQuantityInInch = anotherQuantity.unit.calculateBaseUnit(anotherQuantity.value);
+        int sum = firstQuantityInInch.add(secondQuantityInInch).intValue();
+        BigDecimal sumInFirstUnit =  this.unit.convertTo(new BigDecimal(sum));
+        return new Quantity(sumInFirstUnit,this.unit);
     }
 }

@@ -12,6 +12,7 @@ class QuantityTest {
     void shouldCreateAQuantityOfUnitInch() {
         Quantity oneFeet = new Quantity(new BigDecimal(1), Unit.FEET);
         Quantity anotherOneFeet = new Quantity(new BigDecimal(1), Unit.FEET);
+
         assertEquals(oneFeet, anotherOneFeet);
     }
 
@@ -95,5 +96,23 @@ class QuantityTest {
         Quantity expectedSum = new Quantity(new BigDecimal(2), Unit.FEET);
 
         assertEquals(expectedSum,oneFeet.add(oneFeet));
+    }
+
+    @Test
+    void shouldReturnAdditionOfTwoInchAndTwoPointFiveCmInInches() throws InvalidTypeException {
+        Quantity twoInch = new Quantity(new BigDecimal(2), Unit.INCH);
+        Quantity twoPointFiveCm = new Quantity(new BigDecimal(2.5), Unit.CM);
+
+        Quantity expectedSum = new Quantity(new BigDecimal(3), Unit.INCH);
+        assertEquals(expectedSum,twoInch.add(twoPointFiveCm));
+    }
+
+    @Test
+    void shouldReturnAdditionOfOneGallonAndOneLitreInLitres() throws InvalidTypeException {
+        Quantity oneLitre = new Quantity(new BigDecimal(1), Unit.LITRE);
+        Quantity oneGallon = new Quantity(new BigDecimal(1), Unit.GALLON);
+
+        Quantity expectedSum = new Quantity(new BigDecimal(4), Unit.LITRE);
+        assertEquals(expectedSum,oneLitre.add(oneGallon));
     }
 }

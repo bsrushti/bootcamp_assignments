@@ -7,6 +7,7 @@ import java.math.BigDecimal;
 import static org.junit.jupiter.api.Assertions.*;
 
 class UnitTest {
+
     @Test
     void shouldGetSameFeetUnit() {
         assertEquals(Unit.FEET,Unit.FEET);
