@@ -31,9 +31,9 @@ public class Matrix {
     }
 
     Matrix multiplicationOfMatrices(Matrix anotherMatrix) {
-        int[][] result = new int[matrix.length][matrix.length];
+        int[][] result = new int[matrix.length][anotherMatrix.matrix[0].length];
         for (int i = 0; i < this.matrix.length; i++) {
-            for (int j = 0; j < this.matrix.length; j++) {
+            for (int j = 0; j < anotherMatrix.matrix[0].length; j++) {
                 for (int k = 0; k < this.matrix.length; k++) {
                     result[i][j] += this.matrix[i][k] * anotherMatrix.matrix[k][j];
                 }
@@ -51,6 +51,7 @@ public class Matrix {
         }
         return new Matrix(result);
     }
+
 
     @Override
     public boolean equals(Object o) {

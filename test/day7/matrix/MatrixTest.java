@@ -57,6 +57,25 @@ class MatrixTest {
     }
 
     @Test
+    void shouldReturnMultiplicationOfTwoMatricesOfDifferentLength() {
+        SampleMatrices sampleMatrices = new SampleMatrices();
+        Matrix matrix = new Matrix(sampleMatrices.getTwoByTwoMatrix());
+        Matrix anotherTwoByTwoMatrix = new Matrix(sampleMatrices.getTwoByThreeMatrix());
+
+        int [][]expectedMatrix = new int [2][3];
+        expectedMatrix[0][0] = 9;
+        expectedMatrix[0][1] = 12;
+        expectedMatrix[0][2] = 15;
+        expectedMatrix[1][0] = 19;
+        expectedMatrix[1][1] = 26;
+        expectedMatrix[1][2] = 33;
+
+        Matrix expected = new Matrix(expectedMatrix);
+        Matrix actual = matrix.multiplicationOfMatrices(anotherTwoByTwoMatrix);
+        assertEquals(expected,actual);
+    }
+
+    @Test
     void shouldReturnTransposeOfTwoMatrices() {
         SampleMatrices sampleMatrices = new SampleMatrices();
         Matrix matrix = new Matrix(sampleMatrices.getTwoByTwoMatrix());
